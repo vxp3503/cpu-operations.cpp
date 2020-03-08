@@ -1,0 +1,86 @@
+#include<iostream>
+using namespace std;
+int a[20],i,j,n,l[30],t=0,temp,u,s[40],z=0,d[30],b[49],c[40];
+sorting(int g[],int size)
+{
+		for(j=0;i<n;j++)
+	{
+		for(i=0;i<n-1-j;i++)
+		{
+			if(g[i]>g[i+1])
+			{
+				temp=g[i];
+				g[i]=g[i+1];
+				g[i+1]=temp;
+			}
+		}
+	}
+}
+FIFS()
+{
+sorting(l,30);
+	for(u=0;u<n;u++)
+	{
+		for(i=0;i<n;i++)
+		{
+			if(l[u]==a[i])
+			{
+				s[z]=i;
+				a[i]=0;
+				z++;
+			}
+		}
+	}
+	cout<<"completion time and burst time is given by";
+	for(z=0;z<n;z++)
+	{
+		
+       i=s[z]; 
+      if(d[i]==0)
+      {
+      	c[z]=b[i];
+	  }
+	  else if(d[i]>=c[z-1])
+	  {
+	  	c[z]=d[i]+b[i];
+	  }
+	  else
+	  {
+	  	c[z]=c[z-1]+b[i];
+	  }
+	  s[z]=c[z]-d[z];
+	  cout<<c[z]<<" ";
+	  cout<<s[z]<<endl;
+	}
+}
+
+
+int main()
+{
+	int p;
+	cout<<"enter which operation u want to perform";
+	cin>>p;
+	cout<<"enter no. of task perform in cpu";
+	cin>>n;
+	cout<<"enter arrival time of each task";
+	for(i=0;i<n;i++)
+	{
+		cin>>a[i];
+		l[i]=a[i];
+		d[i]=a[i];
+	}
+	cout<<"enter burst time of each task";
+	for(i=0;i<n;i++)
+	{
+		cin>>b[i];
+	}
+	switch(p)
+	{
+		case 1:
+			FIFS();
+			break;
+		default:
+			cout<<"no operation";
+	}
+	return 0;
+}
